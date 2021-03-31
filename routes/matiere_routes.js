@@ -1,22 +1,22 @@
 const express = require('express')
 const router = express.Router()
-const Matiere = require('../models/matiére')//import le model matiere
+const Matiere = require('../models/matiére')//importer le model matiere
 const {validation_matiere} = require('../validation')
 const verify = require('../verifytoken')
 
-require('../models/module')
 
 
 //GET MATIERES
 router.get('/matieres',verify,async(req,res)=>{
     try{
-        const matieres = await Matiere.find().populate('module')
+        const matieres = await Matiere.find()
   
         res.json(matieres)
         console.log("GET successefly")
     
     }catch(error){
         res.json({message: error})
+        
     }
     })
 
@@ -24,7 +24,7 @@ router.get('/matieres',verify,async(req,res)=>{
 router.get('/matieres/:idMat',verify,async(req,res)=>{
 
     try{
-        const specific_matiere =  await Matiere.findById({_id:req.params.idMat}).populate('module')
+        const specific_matiere =  await Matiere.findById({_id:req.params.idMat})
         res.json(specific_matiere)
         console.log("GETSPEC successefly")
     
@@ -46,7 +46,6 @@ router.post('/nouveau_matiere',verify,async (req,res)=>{
         libelle:req.body.libelle,
         coefficient:req.body.coefficient,
         nombre_heures:req.body.nombre_heures,
-        module:req.body.module
     })
     
     try{

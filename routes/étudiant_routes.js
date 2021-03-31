@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const Etudiant = require('../models/étudiant')//import le model étudiant
+const Etudiant = require('../models/étudiant')//importer le model étudiant
 const {validation_etduiant} = require('../validation')
 const verify = require('../verifytoken')
 

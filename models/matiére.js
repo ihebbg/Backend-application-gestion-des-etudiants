@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-require('../models/module')
 
 const matiereschema = mongoose.Schema({
     libelle:{
@@ -13,11 +12,6 @@ const matiereschema = mongoose.Schema({
     nombre_heures:{
         type:Number,
         required: true
-    },
-    module:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "modules",
-        required:true
     }
 
 })

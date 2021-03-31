@@ -19,19 +19,10 @@ const validation_matiere=(data)=>{
         libelle:joi.string().required(),
         coefficient: joi.number().required(),
         nombre_heures:joi.number().required(),
-        module: joi.string().required()
     }
 return joi.validate(data,schema_matiere)
 }
 
-// validation les champs pour les modules
-const validation_module=(data)=>{
-    const schema_module={
-        nom_module:joi.string().required(),
-    
-    }
-return joi.validate(data,schema_module)
-}
 
 // validation les champs pour de sign up
 const validation_register=(data)=> {
@@ -55,4 +46,4 @@ return joi.validate(data,schema)
 }
 
 
-module.exports= {validation_register,validation_login,validation_etduiant, validation_matiere,validation_module}
+module.exports= {validation_register,validation_login,validation_etduiant, validation_matiere}
